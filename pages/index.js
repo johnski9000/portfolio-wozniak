@@ -1,6 +1,9 @@
 import React from 'react';
 import BaseLayout from '../components/layouts/BaseLayout';
 import { Container, Row, Col } from 'reactstrap';
+import Typed from "react-typed"
+
+
 
 class Index extends React.Component {
   render() {
@@ -34,12 +37,23 @@ class Index extends React.Component {
                 <div className="hero-welcome-text">
                   <h1>
                     Welcome to the portfolio website of Janusz Wozniak.
-                    Get informed, collaborate and discover projects I was working on through the years!
+                    {/* Get informed, collaborate and discover projects I've been working on! */}
                   </h1>
                 </div>
+                <Typed
+                loop
+                typeSpeed={70}
+                backSpeed={70}
+                strings={["Tech Lover", "Developer", "Team Player", "React.js", "CSS5", "HTML", "Javascript", "SQL"]}
+                backDelay={1000}
+                loopCount={0}
+                showCursor
+                className="self-typed"
+                cursorChar="|"
+                />
                 <div className="hero-welcome-bio">
                   <h1>
-                    Let's take a look on my work.
+                    Let's take a look at my work.
                   </h1>
                 </div>
               </Col>

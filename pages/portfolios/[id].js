@@ -1,4 +1,5 @@
 import BasicLayout from "../../components/layouts/BaseLayout"
+import BasePage from "../../components/BasePage"
 import {useRouter} from "next/router"
 import axios from "axios"
 // export const getStaticPaths = async () => {
@@ -34,10 +35,12 @@ const DetailPage = ({post}) => {
 
   return (
     <BasicLayout>
-        <h1>I am Portfolio Page</h1>
-        <h1>{post.title}</h1>
-        <p>Body: {post.body}</p>
-        <p>ID: {post.id}</p>
+        <BasePage>
+            <h1>I am Portfolio Page</h1>
+            <h1>{post.title}</h1>
+            <p>Body: {post.body}</p>
+            <p>ID: {post.id}</p>
+        </BasePage>
     </BasicLayout>
   )
 }
