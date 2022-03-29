@@ -8,7 +8,7 @@ const withAuth = (Component) => {
         return <p>Loading...</p>
       }
     if (!user) {
-        return <Redirect to={"/api/v1/login"}/>
+        return <Redirect ssr to={"/api/v1/login"}/>
     } else {
       return <Component user={user} loading={loading}/>
     }
