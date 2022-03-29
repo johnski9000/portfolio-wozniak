@@ -2,6 +2,7 @@ import BasicLayout from "../../components/layouts/BaseLayout"
 import BasePage from "../../components/BasePage"
 import {useRouter} from "next/router"
 import axios from "axios"
+import { useGetUser } from './../../actions/user';
 // export const getStaticPaths = async () => {
 //     const res = await fetch("https://jsonplaceholder.typicode.com/posts")
 //     let data = await res.json()
@@ -31,10 +32,11 @@ import axios from "axios"
 
 const DetailPage = ({post}) => {
     const router = useRouter()
+    const {data, error, loading} = useGetUser();
     // console.log(router)
 
   return (
-    <BasicLayout>
+    <BasicLayout user={data} loading={loading}>
         <BasePage>
             <h1>I am Portfolio Page</h1>
             <h1>{post.title}</h1>

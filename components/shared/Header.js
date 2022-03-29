@@ -7,6 +7,7 @@ import {
   Nav,
   NavItem
 } from 'reactstrap';
+import { useGetUser } from './../../actions/user';
 
 
 const BsNavLink = props => {
@@ -18,13 +19,17 @@ const BsNavLink = props => {
   )
 }
 
-const LoginLink = () => <span className="nav-link port-navbar-link">Login</span>
+const LoginLink = () =>
+<a href="/api/v1/login" className="nav-link port-navbar-link">Login</a>
 
-const LogoutLink = () => <span className="nav-link port-navbar-link">Logout</span>
+const LogoutLink = () => 
+<a href="/api/v1/logout" className="nav-link port-navbar-link">Logout</a>
 
-const Header = () => {
+
+const Header = ({user, loading}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const {data, loading: loadingU} = useGetUser()
 
   return (
     <div>
@@ -56,14 +61,30 @@ const Header = () => {
             <NavItem className="port-navbar-item">
               <BsNavLink href="/cv" title="Cv"/>
             </NavItem>
+            { data && 
+            <NavItem className="port-navbar-item">
+            <BsNavLink href="/secret" title="secret"/>
+          </NavItem>
+            }
           </Nav>
           <Nav navbar>
-          <NavItem className="port-navbar-item clickable">
-              <LoginLink/>
-            </NavItem>
-            <NavItem className="port-navbar-item clickable">
-              <LogoutLink/>
-            </NavItem>
+            {
+              !loading &&
+              <>
+              {
+                user &&
+              <NavItem className="port-navbar-item clickable">
+                <LogoutLink/>
+              </NavItem>
+              }
+              {
+                !user && 
+                <NavItem className="port-navbar-item clickable">
+                  <LoginLink/>
+                </NavItem>
+              }
+              </>
+            }
           </Nav>
         </Collapse>
       </Navbar>
