@@ -1,7 +1,7 @@
 import { useGetUser } from './../actions/user';
 import Redirect from './../components/shared/Redirect';
 
-const withAuth = (Component) => {
+const withAuth = (Component) => (role) => {
     return props => {
         const {data: user, loading} = useGetUser();
     if (loading) {
@@ -10,6 +10,7 @@ const withAuth = (Component) => {
     if (!user) {
         return <Redirect ssr to={"/api/v1/login"}/>
     } else {
+      if (user && )
       return <Component user={user} loading={loading}/>
     }
     }

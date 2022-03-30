@@ -26,7 +26,7 @@ export const authorizeUser = async (req, res) => {
   return session.user
 }
 
-export const withAuth = () => async ({req, res}) => {
+export const withAuth = (getData) => async ({req, res}) => {
   const session = await auth0.getSession(req)
   if (!session || !session.user) {
       res.writeHead(302, {
@@ -35,5 +35,8 @@ export const withAuth = () => async ({req, res}) => {
       res.end()
       return {props: {}}
   }
-  return {props: {user: session.user}}
+
+  const data = getData ? await getData({req, res}, session.user) : {};
+
+  return {props: {user: session.user, ...data}}
 }
