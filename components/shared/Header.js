@@ -40,7 +40,7 @@ const Header = ({user, loading}) => {
         expand="md">
         <div className="navbar-brand">
           <Link href="/">
-            <a className="port-navbar-brand">Janusz Wozniak</a>
+            <a className="port-navbar-brand">J Wozniak</a>
           </Link>
         </div>
         <NavbarToggler onClick={toggle} />
@@ -61,7 +61,7 @@ const Header = ({user, loading}) => {
             <NavItem className="port-navbar-item">
               <BsNavLink href="/cv" title="Cv"/>
             </NavItem>
-            <NavItem className="port-navbar-item">
+            {/* <NavItem className="port-navbar-item">
             <BsNavLink href="/secret" title="Secret"/>
           </NavItem>
             <NavItem className="port-navbar-item">
@@ -70,6 +70,9 @@ const Header = ({user, loading}) => {
           <NavItem className="port-navbar-item">
             <BsNavLink href="/adminonly" title="Admin"/>
           </NavItem>
+          <NavItem className="port-navbar-item">
+            <BsNavLink href="/onlyadminssr" title="Adminssr"/>
+          </NavItem> */}
           </Nav>
           <Nav navbar>
             {

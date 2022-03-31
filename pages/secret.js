@@ -32,4 +32,4 @@ function Secret({user, loading}) {
 //     return <Secret title="Hello world"/>
 // };
 
-export default withAuth(Secret)
+export default withAuth(Secret)("guest")

@@ -46,7 +46,7 @@ const Index = () => {
                 loop
                 typeSpeed={70}
                 backSpeed={70}
-                strings={["Tech Lover", "Developer", "Team Player", "React.js", "CSS5", "HTML", "Javascript", "SQL"]}
+                strings={["Tech Lover", "Developer", "Team Player", "React.js", "CSS", "HTML", "Javascript", "SQL"]}
                 backDelay={1000}
                 loopCount={0}
                 showCursor
